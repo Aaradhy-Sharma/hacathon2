@@ -1,0 +1,18 @@
+It looks like there are still a few issues with the code that need to be fixed before it can be compiled successfully:
+
+1. The `log_attempt` function is not declared in any of the header files. You need to add a declaration for this function to `database.h` to fix this issue. For example:
+
+```c
+void log_attempt(time_t time, const char *ip_address, const char *password, bool success);
+```
+
+2. The `argon2.h` header file is not found during compilation. This indicates that the argon2 library is not installed on your system or is not being found by the compiler. You need to install the argon2 library and make sure that the compiler can find its header files to fix this issue.
+
+3. The `get_login_attempts` and `increment_login_attempts` functions are not declared in any of the header files. You need to add declarations for these functions to `database.h` to fix this issue. For example:
+
+```c
+int get_login_attempts(const char *ip_address);
+void increment_login_attempts(const char *ip_address);
+```
+
+After fixing these issues, you should be able to compile the code successfully.
